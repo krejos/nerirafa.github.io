@@ -1,295 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Profissional de TI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<title>Portfólio | Profissional de TI</title>
 
-        body {
-            background-color: #f4f6f9;
-            color: #333;
-        }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        /* HEADER */
+<style>
 
-        header {
-            background: linear-gradient(135deg, #1f2933, #111827);
-            color: #fff;
-            padding: 60px 20px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
 
-        .header-container {
-            max-width: 1100px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
+body{
+    background: linear-gradient(135deg,#0f172a,#020617);
+    color:#e5e7eb;
+}
 
-        .perfil-texto h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
+/* HEADER */
 
-        .perfil-texto p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
-        /* FOTO */
-
-        .perfil-foto {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            border: 4px solid #2563eb;
-            object-fit: cover;
-            background: #ccc;
-        }
-
-        /* SECTIONS */
-
-        section {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        section h2 {
-            margin-bottom: 20px;
-            color: #1f2933;
-            border-left: 5px solid #2563eb;
-            padding-left: 10px;
-        }
-
-        /* SOBRE */
-
-        .sobre p {
-            line-height: 1.7;
-            font-size: 16px;
-        }
-
-        /* SKILLS */
-
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-        }
-
-        .skill-item {
-            background: #e5e7eb;
-            padding: 12px;
-            text-align: center;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .skill-item:hover {
-            background: #2563eb;
-            color: white;
-            transform: scale(1.05);
-        }
-
-        /* PROJETOS */
-
-        .projetos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .projeto {
-            background: #f9fafb;
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            transition: 0.3s;
-        }
-
-        .projeto:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-        }
-
-        .projeto h3 {
-            margin-bottom: 10px;
-            color: #2563eb;
-        }
-
-        .projeto p {
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-
-        .projeto a {
-            text-decoration: none;
-            color: #2563eb;
-            font-weight: bold;
-        }
-
-        /* CONTATO */
-
-        .contato p {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #111827;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        footer p {
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        /* RESPONSIVO */
-
-        @media (max-width: 768px) {
-
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-        }
-
-    </style>
-</head>
-
-<body>
-
-    <!-- HEADER -->
-
-    <header>
-        <div class="header-container">
-
-            <div class="perfil-texto">
-                <h1>SEU NOME AQUI</h1>
-                <p>Desenvolvedor | Analista de TI | Suporte Técnico</p>
-            </div>
-
-            <!-- FOTO -->
-            <img src="foto.jpg" alt="Foto de Perfil" class="perfil-foto">
-
-        </div>
-    </header>
-
-    <!-- SOBRE -->
-
-    <section class="sobre">
-        <h2>Sobre Mim</h2>
-
-        <p>
-            Profissional da área de Tecnologia da Informação com experiência em
-            suporte técnico, desenvolvimento, manutenção de sistemas,
-            infraestrutura e atendimento ao usuário. Focado em soluções
-            eficientes, melhoria contínua e aprendizado constante.
-        </p>
-
-    </section>
-
-    <!-- SKILLS -->
-
-    <section>
-        <h2>Habilidades Técnicas</h2>
-
-        <div class="skills">
-
-            <div class="skill-item">HTML / CSS</div>
-            <div class="skill-item">JavaScript</div>
-            <div class="skill-item">Python</div>
-            <div class="skill-item">SQL</div>
-            <div class="skill-item">Git / GitHub</div>
-            <div class="skill-item">Linux / Windows</div>
-            <div class="skill-item">Redes</div>
-            <div class="skill-item">Suporte</div>
-            <div class="skill-item">Power BI / Excel</div>
-
-        </div>
-
-    </section>
-
-    <!-- PROJETOS -->
-
-    <section>
-        <h2>Projetos</h2>
-
-        <div class="projetos">
-
-            <div class="projeto">
-                <h3>Sistema de Gestão</h3>
-
-                <p>
-                    Sistema para controle de clientes, usuários e relatórios,
-                    desenvolvido em Python e SQL.
-                </p>
-
-                <a href="#">Ver no GitHub</a>
-            </div>
-
-            <div class="projeto">
-                <h3>Site Institucional</h3>
-
-                <p>
-                    Website responsivo usando HTML, CSS e JavaScript.
-                </p>
-
-                <a href="#">Ver no GitHub</a>
-            </div>
-
-            <div class="projeto">
-                <h3>Automação</h3>
-
-                <p>
-                    Scripts para automação de processos administrativos.
-                </p>
-
-                <a href="#">Ver no GitHub</a>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- CONTATO -->
-
-    <section class="contato">
-        <h2>Contato</h2>
-
-        <p>📧 Email: seuemail@email.com</p>
-        <p>💼 LinkedIn: linkedin.com/in/seuperfil</p>
-        <p>💻 GitHub: github.com/seuusuario</p>
-        <p>📱 WhatsApp: (00) 00000-0000</p>
-
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer>
-        <p>© 2026 - Portfólio Profissional de TI</p>
-    </footer>
-
-</body>
-</html>
+header{
+    min-height:100vh;
+    display:flex;
+    align-items
