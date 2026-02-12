@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rafael Neri | Portfólio 3D</title>
+<title>Rafael Neri | Portfólio Elite</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -12,15 +12,17 @@
 
 <style>
 
-/* ================= GLOBAL ================= */
+/* ================= ROOT ================= */
 
 :root{
 --bg:#050b17;
---glass:rgba(255,255,255,0.08);
+--glass:rgba(255,255,255,0.07);
 --border:rgba(255,255,255,0.15);
 --text:#e5e7eb;
 --primary:#38bdf8;
 }
+
+/* ================= RESET ================= */
 
 *{
 margin:0;
@@ -37,7 +39,7 @@ overflow-x:hidden;
 
 /* ================= 3D ================= */
 
-#scene3d{
+#bg3d{
 position:fixed;
 inset:0;
 z-index:-2;
@@ -50,7 +52,7 @@ position:fixed;
 top:0;
 width:100%;
 backdrop-filter:blur(15px);
-background:rgba(0,0,0,0.4);
+background:rgba(0,0,0,.4);
 border-bottom:1px solid var(--border);
 z-index:1000;
 }
@@ -107,8 +109,7 @@ padding:20px;
 }
 
 .hero h1{
-font-size:50px;
-line-height:1.1;
+font-size:48px;
 }
 
 .hero span{
@@ -121,14 +122,16 @@ opacity:.85;
 font-size:17px;
 }
 
+/* ================= BTN ================= */
+
 .btn{
-display:inline-block;
 padding:12px 26px;
 background:linear-gradient(135deg,#38bdf8,#2563eb);
 border-radius:30px;
 color:#020617;
 font-weight:600;
-text-decoration:none;
+border:none;
+cursor:pointer;
 transition:.3s;
 }
 
@@ -147,8 +150,8 @@ gap:12px;
 }
 
 .profile img{
-width:240px;
-height:240px;
+width:230px;
+height:230px;
 border-radius:50%;
 object-fit:cover;
 border:3px solid var(--primary);
@@ -185,13 +188,15 @@ border-left:5px solid var(--primary);
 padding-left:15px;
 }
 
-/* ================= CARDS ================= */
+/* ================= GRID ================= */
 
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 }
+
+/* ================= CARD ================= */
 
 .card{
 background:var(--glass);
@@ -217,17 +222,11 @@ padding:40px;
 opacity:.6;
 }
 
-/* ================= RESPONSIVE ================= */
-
 @media(max-width:900px){
 
 .hero{
 grid-template-columns:1fr;
 text-align:center;
-}
-
-.hero h1{
-font-size:38px;
 }
 
 .profile img{
@@ -242,7 +241,7 @@ height:190px;
 
 <body>
 
-<canvas id="scene3d"></canvas>
+<canvas id="bg3d"></canvas>
 
 <!-- NAV -->
 
@@ -272,17 +271,17 @@ height:190px;
 <h1>Rafael <span>Neri</span></h1>
 
 <p>
-Full Stack | Dados | Automação<br>
+Full Stack • Dados • Automação<br>
 Criando soluções digitais inteligentes.
 </p>
 
-<a href="#contato" class="btn">Fale Comigo</a>
+<button class="btn" onclick="downloadCV()">Baixar Currículo</button>
 
 </div>
 
 <div class="profile">
 
-<img id="photo" src="https://via.placeholder.com/240">
+<img id="photo" src="https://via.placeholder.com/230">
 
 <label class="upload">
 <input type="file" id="uploadPhoto" accept="image/*">
@@ -309,15 +308,15 @@ Anexar Currículo
 <div class="card">
 
 <p>
-Profissional com sólida experiência em RH, Administração,
-Tecnologia e Dados. Especialista em otimização de processos.
+Profissional com sólida experiência em tecnologia,
+dados, RH e automação de processos.
 </p>
 
 </div>
 
 </section>
 
-<!-- SKILLS -->
+<!-- STACK -->
 
 <section id="skills">
 
@@ -346,20 +345,9 @@ Tecnologia e Dados. Especialista em otimização de processos.
 
 <div class="grid">
 
-<div class="card">
-<h3>Grupo Mazzini</h3>
-<p>R&S / Administrativo</p>
-</div>
-
-<div class="card">
-<h3>Trend Brasil</h3>
-<p>Administrativo</p>
-</div>
-
-<div class="card">
-<h3>INEMA</h3>
-<p>Gestão de Dados</p>
-</div>
+<div class="card">Grupo Mazzini</div>
+<div class="card">Trend Brasil</div>
+<div class="card">INEMA</div>
 
 </div>
 
@@ -383,7 +371,7 @@ Tecnologia e Dados. Especialista em otimização de processos.
 
 <footer>
 
-© 2026 • Rafael Neri • Portfólio 3D
+© 2026 • Rafael Neri • Portfólio Elite
 
 </footer>
 
@@ -417,7 +405,7 @@ reader.readAsDataURL(file);
 
 });
 
-/* ================= CURRÍCULO ================= */
+/* ================= CV ================= */
 
 const cvUpload = document.getElementById("uploadCV");
 
@@ -441,9 +429,25 @@ reader.readAsDataURL(file);
 
 });
 
-/* ================= THREE JS ================= */
+function downloadCV(){
 
-const canvas = document.getElementById("scene3d");
+const cv = localStorage.getItem("cv");
+
+if(!cv){
+alert("Nenhum currículo anexado.");
+return;
+}
+
+const a = document.createElement("a");
+a.href = cv;
+a.download = "Rafael_Neri_Curriculo.pdf";
+a.click();
+
+}
+
+/* ================= THREE ================= */
+
+const canvas = document.getElementById("bg3d");
 
 const scene = new THREE.Scene();
 
@@ -475,14 +479,14 @@ const mesh = new THREE.Mesh(geo,mat);
 
 scene.add(mesh);
 
-/* Lights */
+/* Light */
 
 scene.add(new THREE.PointLight(0x38bdf8,1,50));
 scene.add(new THREE.AmbientLight(0xffffff,.3));
 
 camera.position.z = 8;
 
-/* Animation */
+/* Animate */
 
 function animate(){
 
