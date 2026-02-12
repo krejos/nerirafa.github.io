@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
 <style>
 
 /* ======================
-   THEME - TYPESCRIPT
+   THEME
 ====================== */
 
 :root{
@@ -22,7 +23,7 @@
 --card:#1f2933;
 --text:#e6edf3;
 --muted:#8b949e;
---primary:#3178c6; /* TS Blue */
+--primary:#3178c6;
 --border:#30363d;
 }
 
@@ -47,175 +48,4 @@ box-sizing:border-box;
 font-family:'Inter',sans-serif;
 }
 
-body{
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
-transition:.3s;
-}
-
-/* 3D BG */
-
-#bg3d{
-position:fixed;
-inset:0;
-z-index:-1;
-}
-
-/* ======================
-   HEADER / NAV
-====================== */
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:var(--panel);
-border-bottom:1px solid var(--border);
-z-index:1000;
-}
-
-.nav-inner{
-max-width:1200px;
-margin:auto;
-padding:14px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-weight:700;
-color:var(--primary);
-font-size:18px;
-}
-
-.nav-links a{
-margin-left:20px;
-text-decoration:none;
-color:var(--muted);
-font-size:14px;
-transition:.2s;
-}
-
-.nav-links a:hover{
-color:var(--primary);
-}
-
-/* ======================
-   HERO
-====================== */
-
-header{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding-top:80px;
-}
-
-.hero{
-max-width:1100px;
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:50px;
-padding:20px;
-}
-
-.hero h1{
-font-size:48px;
-font-weight:700;
-}
-
-.hero span{color:var(--primary);}
-
-.hero p{
-color:var(--muted);
-margin:20px 0;
-max-width:500px;
-}
-
-/* ======================
-   PROFILE
-====================== */
-
-.profile{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:15px;
-}
-
-.profile img{
-width:220px;
-height:220px;
-border-radius:12px;
-object-fit:cover;
-border:2px solid var(--border);
-}
-
-.upload{
-font-size:12px;
-color:var(--muted);
-cursor:pointer;
-}
-
-.upload:hover{color:var(--primary);}
-
-input[type=file]{display:none;}
-
-/* ======================
-   BUTTON
-====================== */
-
-.btn{
-display:inline-block;
-background:var(--primary);
-color:white;
-padding:10px 22px;
-border-radius:6px;
-font-size:14px;
-text-decoration:none;
-font-weight:600;
-transition:.2s;
-}
-
-.btn:hover{opacity:.85;}
-
-/* ======================
-   SECTIONS
-====================== */
-
-section{
-max-width:1100px;
-margin:80px auto;
-padding:0 20px;
-}
-
-.section-title{
-font-size:26px;
-margin-bottom:25px;
-border-left:4px solid var(--primary);
-padding-left:12px;
-}
-
-/* ======================
-   CARDS
-====================== */
-
-.card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:8px;
-padding:22px;
-transition:.2s;
-}
-
-.card:hover{
-border-color:var(--primary);
-transform:translateY(-4px);
-}
-
-/* ======================
-   GRID
-===================
+b
