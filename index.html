@@ -18,30 +18,54 @@
             color: #333;
         }
 
+        /* HEADER */
+
         header {
             background: linear-gradient(135deg, #1f2933, #111827);
             color: #fff;
-            text-align: center;
             padding: 60px 20px;
         }
 
-        header h1 {
-            font-size: 36px;
+        .header-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .perfil-texto h1 {
+            font-size: 38px;
             margin-bottom: 10px;
         }
 
-        header p {
+        .perfil-texto p {
             font-size: 18px;
             opacity: 0.9;
         }
+
+        /* FOTO */
+
+        .perfil-foto {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid #2563eb;
+            object-fit: cover;
+            background: #ccc;
+        }
+
+        /* SECTIONS */
 
         section {
             max-width: 1000px;
             margin: 40px auto;
             background: #fff;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         section h2 {
@@ -51,13 +75,18 @@
             padding-left: 10px;
         }
 
+        /* SOBRE */
+
         .sobre p {
             line-height: 1.7;
+            font-size: 16px;
         }
+
+        /* SKILLS */
 
         .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
         }
 
@@ -65,9 +94,18 @@
             background: #e5e7eb;
             padding: 12px;
             text-align: center;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: bold;
+            transition: 0.3s;
         }
+
+        .skill-item:hover {
+            background: #2563eb;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* PROJETOS */
 
         .projetos {
             display: grid;
@@ -79,7 +117,13 @@
             background: #f9fafb;
             border: 1px solid #ddd;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .projeto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
         .projeto h3 {
@@ -98,9 +142,14 @@
             font-weight: bold;
         }
 
+        /* CONTATO */
+
         .contato p {
             margin: 10px 0;
+            font-size: 16px;
         }
+
+        /* FOOTER */
 
         footer {
             background: #111827;
@@ -114,40 +163,75 @@
             font-size: 14px;
             opacity: 0.8;
         }
+
+        /* RESPONSIVO */
+
+        @media (max-width: 768px) {
+
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+        }
+
     </style>
 </head>
+
 <body>
 
+    <!-- HEADER -->
+
     <header>
-        <h1>SEU NOME AQUI</h1>
-        <p>Desenvolvedor | Analista de TI | Suporte Técnico</p>
+        <div class="header-container">
+
+            <div class="perfil-texto">
+                <h1>SEU NOME AQUI</h1>
+                <p>Desenvolvedor | Analista de TI | Suporte Técnico</p>
+            </div>
+
+            <!-- FOTO -->
+            <img src="foto.jpg" alt="Foto de Perfil" class="perfil-foto">
+
+        </div>
     </header>
+
+    <!-- SOBRE -->
 
     <section class="sobre">
         <h2>Sobre Mim</h2>
+
         <p>
             Profissional da área de Tecnologia da Informação com experiência em
             suporte técnico, desenvolvimento, manutenção de sistemas,
             infraestrutura e atendimento ao usuário. Focado em soluções
             eficientes, melhoria contínua e aprendizado constante.
         </p>
+
     </section>
+
+    <!-- SKILLS -->
 
     <section>
         <h2>Habilidades Técnicas</h2>
 
         <div class="skills">
+
             <div class="skill-item">HTML / CSS</div>
             <div class="skill-item">JavaScript</div>
             <div class="skill-item">Python</div>
-            <div class="skill-item">SQL / Banco de Dados</div>
+            <div class="skill-item">SQL</div>
             <div class="skill-item">Git / GitHub</div>
-            <div class="skill-item">Windows / Linux</div>
+            <div class="skill-item">Linux / Windows</div>
             <div class="skill-item">Redes</div>
-            <div class="skill-item">Suporte Técnico</div>
+            <div class="skill-item">Suporte</div>
             <div class="skill-item">Power BI / Excel</div>
+
         </div>
+
     </section>
+
+    <!-- PROJETOS -->
 
     <section>
         <h2>Projetos</h2>
@@ -156,33 +240,40 @@
 
             <div class="projeto">
                 <h3>Sistema de Gestão</h3>
+
                 <p>
                     Sistema para controle de clientes, usuários e relatórios,
-                    desenvolvido em Python e banco de dados SQL.
+                    desenvolvido em Python e SQL.
                 </p>
+
                 <a href="#">Ver no GitHub</a>
             </div>
 
             <div class="projeto">
                 <h3>Site Institucional</h3>
+
                 <p>
-                    Desenvolvimento de website responsivo utilizando HTML,
-                    CSS e JavaScript.
+                    Website responsivo usando HTML, CSS e JavaScript.
                 </p>
+
                 <a href="#">Ver no GitHub</a>
             </div>
 
             <div class="projeto">
-                <h3>Automação de Processos</h3>
+                <h3>Automação</h3>
+
                 <p>
-                    Scripts para automação de tarefas administrativas,
-                    relatórios e integração de sistemas.
+                    Scripts para automação de processos administrativos.
                 </p>
+
                 <a href="#">Ver no GitHub</a>
             </div>
 
         </div>
+
     </section>
+
+    <!-- CONTATO -->
 
     <section class="contato">
         <h2>Contato</h2>
@@ -191,7 +282,10 @@
         <p>💼 LinkedIn: linkedin.com/in/seuperfil</p>
         <p>💻 GitHub: github.com/seuusuario</p>
         <p>📱 WhatsApp: (00) 00000-0000</p>
+
     </section>
+
+    <!-- FOOTER -->
 
     <footer>
         <p>© 2026 - Portfólio Profissional de TI</p>
@@ -199,4 +293,3 @@
 
 </body>
 </html>
-
