@@ -1,5 +1,0 @@
-portfolio_fullstack
- ├ app.py
- ├ database.db   (cria sozinho)
- └ templates
-     └ index.html
