@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rafael Neri | Portfólio Profissional</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= VARIÁVEIS ================= */
+
+:root{
+--bg:#0d1117;
+--card:#161b22;
+--text:#e6edf3;
+--muted:#8b949e;
+--primary:#3178c6;
+--border:#30363d;
+}
+
+.light{
+--bg:#ffffff;
+--card:#f6f8fa;
+--text:#24292f;
+--muted:#57606a;
+--primary:#2563eb;
+--border:#d0d7de;
+}
+
+/* ================= RESET ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+transition:.3s;
+}
+
+/* ================= NAV ================= */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:var(--card);
+border-bottom:1px solid var(--border);
+z-index:1000;
+}
+
+.nav-inner{
+max-width:1200px;
+margin:auto;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-weight:700;
+color:var(--primary);
+font-size:18px;
+}
+
+.nav-links{
+display:flex;
+gap:18px;
+}
+
+.nav-links a,
+.nav-links button{
+background:none;
+border:none;
+color:var(--muted);
+cursor:pointer;
+font-size:14px;
+text-decoration:none;
+}
+
+.nav-links a:hover,
+.nav-links button:hover{
+color:var(--primary);
+}
+
+/* ================= HERO ================= */
+
+header{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding-top:90px;
+}
+
+.hero{
+max-width:1100px;
+width:100%;
+display:grid;
+grid-template-columns:1.3fr .7fr;
+gap:40px;
+padding:20px;
+}
+
+.hero h1{
+font-size:44px;
+}
+
+.hero span{
+color:var(--primary);
+}
+
+.hero p{
+margin:20px 0;
+color:var(--muted);
+max-width:500px;
+}
+
+/* ================= BOTÃO ================= */
+
+.btn{
+background:var(--primary);
+color:white;
+padding:8px 18px;
+border-radius:6px;
+border:none;
+font-size:13px;
+font-weight:600;
+cursor:pointer;
+text-decoration:none;
+}
+
+.btn:hover{
+opacity:.9;
+}
+
+/* ================= PERFIL ================= */
+
+.profile{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:12px;
+}
+
+.profile img{
+width:220px;
+height:220px;
+border-radius:12px;
+object-fit:cover;
+border:2px solid var(--border);
+}
+
+.upload{
+font-size:12px;
+color:var(--muted);
+cursor:pointer;
+}
+
+.upload:hover{
+color:var(--primary);
+}
+
+input[type=file]{
+display:none;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+max-width:1100px;
+margin:80px auto;
+padding:0 20px;
+}
+
+.section-title{
+font-size:26px;
+margin-bottom:25px;
+border-left:4px solid var(--primary);
+padding-left:12px;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:8px;
+padding:22px;
+transition:.2s;
+}
+
+.card:hover{
+border-color:var(--primary);
+transform:translateY(-4px);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+border-top:1px solid var(--border);
+text-align:center;
+padding:30px;
+color:var(--muted);
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.profile img{
+width:180px;
+height:180px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+<div class="nav-inner">
+
+<div class="logo">Rafael Neri</div>
+
+<div class="nav-links">
+<a href="#sobre">Sobre</a>
+<a href="#skills">Competências</a>
+<a href="#experiencia">Experiência</a>
+<a href="#formacao">Formação</a>
+<a href="#contato">Contato</a>
+
+<button onclick="toggleTheme()">🌙</button>
+</div>
+
+</div>
+</nav>
+
+<!-- HERO -->
+
+<header>
+
+<div class="hero">
+
+<div>
+
+<h1>Olá, eu sou <span>Rafael Neri</span></h1>
+
+<p>
+Profissional das áreas Administrativa, RH e Tecnologia,
+com foco em dados, automação e melhoria de processos.
+</p>
+
+<button class="btn" onclick="downloadCV()">Baixar Currículo</button>
+
+</div>
+
+<div class="profile">
+
+<img id="photo" src="https://via.placeholder.com/220">
+
+<label class="upload">
+<input type="file" id="uploadPhoto" accept="image/*">
+Alterar Foto
+</label>
+
+<label class="upload">
+<input type="file" id="uploadCV" accept="application/pdf">
+Anexar Currículo (PDF)
+</label>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- SOBRE -->
+
+<section id="sobre">
+
+<h2 class="section-title">Sobre Mim</h2>
+
+<div class="card">
+
+<p>
+Profissional com sólida experiência em Recrutamento,
+Departamento Pessoal, rotinas administrativas e tecnologia.
+Atuação orientada a dados, compliance e automação.
+</p>
+
+</div>
+
+</section>
+
+<!-- COMPETÊNCIAS -->
+
+<section id="skills">
+
+<h2 class="section-title">Competências</h2>
+
+<div class="grid">
+
+<div class="card">Recrutamento & Seleção</div>
+<div class="card">Departamento Pessoal</div>
+<div class="card">Excel Avançado</div>
+<div class="card">Power BI</div>
+<div class="card">Análise de Dados</div>
+<div class="card">Automação</div>
+<div class="card">ATS (Catho / Pandapé)</div>
+<div class="card">LGPD</div>
+<div class="card">Python</div>
+<div class="card">JavaScript</div>
+<div class="card">HTML / CSS</div>
+<div class="card">DevOps Básico</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIÊNCIA -->
+
+<section id="experiencia">
+
+<h2 class="section-title">Experiência Profissional</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Grupo Mazzini</h3>
+<p><strong>Assistente Administrativo / R&S</strong></p>
+<p>Dez/2024 – Atual</p>
+<p>
+Recrutamento em alto volume, processos admissionais,
+relatórios, benefícios e automação.
+</p>
+</div>
+
+<div class="card">
+<h3>Trend Brasil Transportes</h3>
+<p><strong>Assistente Administrativo</strong></p>
+<p>Set/2024 – Nov/2024</p>
+<p>
+Controle de ponto, benefícios, folha e sistemas corporativos.
+</p>
+</div>
+
+<div class="card">
+<h3>INEMA</h3>
+<p><strong>Assistente Administrativo</strong></p>
+<p>2012 – 2022</p>
+<p>
+Gestão de dados, folha, relatórios, SEI e LGPD.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FORMAÇÃO -->
+
+<section id="formacao">
+
+<h2 class="section-title">Formação</h2>
+
+<div class="grid">
+
+<div class="card">
+Pós-graduação em BI, Big Data e IA (Em andamento)
+</div>
+
+<div class="card">
+Tecnólogo em Inteligência Artificial (Em andamento)
+</div>
+
+<div class="card">
+Bacharelado em Administração
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTATO -->
+
+<section id="contato">
+
+<h2 class="section-title">Contato</h2>
+
+<div class="card">
+
+<p>📍 Salvador - BA</p>
+<p>📧 nerirafa@gmail.com</p>
+<p>📱 (71) 98627-5154</p>
+<p>💻 GitHub: github.com/krejos</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 • Rafael Neri • Portfólio Profissional
+
+</footer>
+
+<script>
+
+/* ============ DARK MODE ============ */
+
+function toggleTheme(){
+document.body.classList.toggle("light");
+}
+
+/* ============ FOTO ============ */
+
+const photoInput = document.getElementById("uploadPhoto");
+const photo = document.getElementById("photo");
+
+const savedPhoto = localStorage.getItem("photo");
+
+if(savedPhoto){
+photo.src = savedPhoto;
+}
+
+photoInput.addEventListener("change", e=>{
+
+const file = e.target.files[0];
+
+if(!file || !file.type.startsWith("image/")) return;
+
+const reader = new FileReader();
+
+reader.onload = ()=>{
+
+photo.src = reader.result;
+localStorage.setItem("photo", reader.result);
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+/* ============ CURRÍCULO ============ */
+
+const cvInput = document.getElementById("uploadCV");
+
+cvInput.addEventListener("change", e=>{
+
+const file = e.target.files[0];
+
+if(!file || file.type !== "application/pdf"){
+alert("Envie apenas PDF.");
+return;
+}
+
+const reader = new FileReader();
+
+reader.onload = ()=>{
+
+localStorage.setItem("cv", reader.result);
+alert("Currículo salvo!");
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+function downloadCV(){
+
+const cv = localStorage.getItem("cv");
+
+if(!cv){
+alert("Nenhum currículo anexado.");
+return;
+}
+
+const a = document.createElement("a");
+a.href = cv;
+a.download = "Rafael_Neri_Curriculo.pdf";
+a.click();
+
+}
+
+</script>
+
+</body>
+</html>
