@@ -4,17 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Seu Nome | Portfólio TI</title>
+<title>Rafael Neri | Portfólio TI</title>
 
-<meta name="description" content="Portfólio profissional de desenvolvedor e analista de TI. Projetos, habilidades e contato.">
+<meta name="description" content="Portfólio profissional de Rafael Neri dos Santos Martins - Tecnologia, Dados, BI e Automação.">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* =====================
-   VARIÁVEIS
-===================== */
+/* ================= VARIÁVEIS ================= */
 
 :root{
     --bg:#020617;
@@ -30,9 +28,7 @@
     --primary:#2563eb;
 }
 
-/* =====================
-   RESET
-===================== */
+/* ================= RESET ================= */
 
 *{
     margin:0;
@@ -51,9 +47,18 @@ body{
     transition:.4s;
 }
 
-/* =====================
-   NAVBAR
-===================== */
+/* ================= 3D ================= */
+
+#bg3d{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+/* ================= NAV ================= */
 
 nav{
     position:fixed;
@@ -88,17 +93,12 @@ nav ul{
 nav a{
     text-decoration:none;
     color:var(--text);
-    font-weight:500;
     transition:.3s;
 }
 
 nav a:hover{
     color:var(--primary);
 }
-
-/* =====================
-   BOTÕES
-===================== */
 
 .controls{
     display:flex;
@@ -124,9 +124,7 @@ nav a:hover{
     color:#020617;
 }
 
-/* =====================
-   HERO
-===================== */
+/* ================= HERO ================= */
 
 header{
     min-height:100vh;
@@ -156,7 +154,6 @@ header{
 .hero p{
     margin:25px 0;
     font-size:18px;
-    opacity:.9;
 }
 
 .btn{
@@ -175,8 +172,6 @@ header{
     box-shadow:0 0 20px var(--primary);
 }
 
-/* FOTO */
-
 .hero img{
     width:270px;
     height:270px;
@@ -186,9 +181,7 @@ header{
     box-shadow:0 0 50px var(--primary);
 }
 
-/* =====================
-   SECTIONS
-===================== */
+/* ================= SECTIONS ================= */
 
 section{
     max-width:1100px;
@@ -203,9 +196,7 @@ section{
     padding-left:15px;
 }
 
-/* =====================
-   CARDS
-===================== */
+/* ================= CARDS ================= */
 
 .card{
     background:var(--card);
@@ -220,9 +211,7 @@ section{
     box-shadow:0 0 30px rgba(56,189,248,.4);
 }
 
-/* =====================
-   SKILLS
-===================== */
+/* ================= SKILLS ================= */
 
 .skills{
     display:grid;
@@ -231,9 +220,7 @@ section{
     text-align:center;
 }
 
-/* =====================
-   PROJETOS
-===================== */
+/* ================= PROJECTS ================= */
 
 .projects{
     display:grid;
@@ -241,30 +228,23 @@ section{
     gap:28px;
 }
 
-/* =====================
-   CONTATO
-===================== */
+/* ================= CONTACT ================= */
 
 .contact p{
     margin:12px 0;
     font-size:16px;
 }
 
-/* =====================
-   FOOTER
-===================== */
+/* ================= FOOTER ================= */
 
 footer{
     background:var(--card);
     text-align:center;
     padding:25px;
     margin-top:100px;
-    font-size:14px;
 }
 
-/* =====================
-   ANIMAÇÃO
-===================== */
+/* ================= ANIMATION ================= */
 
 .reveal{
     opacity:0;
@@ -277,9 +257,7 @@ footer{
     transform:translateY(0);
 }
 
-/* =====================
-   MOBILE
-===================== */
+/* ================= MOBILE ================= */
 
 @media(max-width:900px){
 
@@ -303,13 +281,15 @@ nav ul{
 
 <body>
 
+<canvas id="bg3d"></canvas>
+
 <!-- NAV -->
 
 <nav>
 
 <div class="nav-container">
 
-<div class="logo">Portfólio</div>
+<div class="logo">Rafael Neri</div>
 
 <ul>
 <li><a href="#home">Início</a></li>
@@ -339,11 +319,11 @@ nav ul{
 
 <div>
 
-<h1>Olá, eu sou <span>SEU NOME</span></h1>
+<h1>Olá, eu sou <span>Rafael Neri</span></h1>
 
 <p>
-Desenvolvedor | Analista de TI | Suporte Técnico<br>
-Criando soluções digitais modernas.
+Tecnologia • Dados • BI • Automação<br>
+Transformando informação em resultado.
 </p>
 
 <a href="#contato" class="btn">Fale comigo</a>
@@ -352,7 +332,7 @@ Criando soluções digitais modernas.
 
 <div>
 
-<img src="foto.jpg" alt="Foto de perfil">
+<img src="foto.jpg" alt="Rafael Neri">
 
 </div>
 
@@ -369,9 +349,9 @@ Criando soluções digitais modernas.
 <div class="card">
 
 <p>
-Profissional de TI com experiência em desenvolvimento,
-infraestrutura, suporte e automação.
-Apaixonado por tecnologia e inovação.
+Profissional com experiência em Administração, RH e Tecnologia,
+atuando com Recrutamento, BI, Automação e Análise de Dados.
+Perfil analítico, organizado e focado em resultados.
 </p>
 
 </div>
@@ -386,14 +366,15 @@ Apaixonado por tecnologia e inovação.
 
 <div class="skills">
 
-<div class="card">HTML / CSS</div>
-<div class="card">JavaScript</div>
+<div class="card">Excel Avançado</div>
+<div class="card">Power BI</div>
 <div class="card">Python</div>
+<div class="card">JavaScript</div>
+<div class="card">HTML / CSS</div>
 <div class="card">SQL</div>
 <div class="card">Git</div>
-<div class="card">Linux</div>
-<div class="card">Cloud</div>
-<div class="card">Power BI</div>
+<div class="card">Automação</div>
+<div class="card">LGPD</div>
 
 </div>
 
@@ -409,37 +390,31 @@ Apaixonado por tecnologia e inovação.
 
 <div class="card">
 
-<h3>Sistema de Gestão</h3>
+<h3>Dashboard BI</h3>
 
 <p>
-Plataforma administrativa com autenticação e relatórios.
+Painéis gerenciais com Power BI e Excel Avançado.
 </p>
-
-<a href="#">Ver Projeto</a>
 
 </div>
 
 <div class="card">
 
-<h3>Website Profissional</h3>
+<h3>Automação RH</h3>
 
 <p>
-Site responsivo e otimizado para SEO.
+Scripts para triagem, relatórios e integração de dados.
 </p>
-
-<a href="#">Ver Projeto</a>
 
 </div>
 
 <div class="card">
 
-<h3>Automação</h3>
+<h3>Portfólio 3D</h3>
 
 <p>
-Scripts para otimização de processos internos.
+Website interativo com Three.js e animações modernas.
 </p>
-
-<a href="#">Ver Projeto</a>
 
 </div>
 
@@ -455,10 +430,9 @@ Scripts para otimização de processos internos.
 
 <div class="card contact">
 
-<p>📧 Email: seuemail@email.com</p>
-<p>💼 LinkedIn: linkedin.com/in/seuperfil</p>
-<p>💻 GitHub: github.com/seuusuario</p>
-<p>📱 WhatsApp: (00) 00000-0000</p>
+<p>📍 Salvador - BA</p>
+<p>📧 nerirafa@gmail.com</p>
+<p>📱 (71) 98627-5154</p>
 
 </div>
 
@@ -466,15 +440,17 @@ Scripts para otimização de processos internos.
 
 <footer>
 
-<p>© 2026 • Seu Nome • Portfólio TI</p>
+<p>© 2026 • Rafael Neri dos Santos Martins</p>
 
 </footer>
 
-<!-- SCRIPT -->
+<!-- SCRIPTS -->
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 
 <script>
 
-/* TEMA SALVO */
+/* TEMA */
 
 const theme = localStorage.getItem('theme');
 
@@ -486,26 +462,20 @@ function toggleTheme(){
 
     document.body.classList.toggle('light');
 
-    if(document.body.classList.contains('light')){
-        localStorage.setItem('theme','light');
-    }else{
-        localStorage.setItem('theme','dark');
-    }
+    localStorage.setItem(
+        'theme',
+        document.body.classList.contains('light') ? 'light' : 'dark'
+    );
 
 }
 
-/* SCROLL ANIMATION */
+/* SCROLL */
 
 function reveal(){
 
-    const elements = document.querySelectorAll('.reveal');
+    document.querySelectorAll('.reveal').forEach(el=>{
 
-    elements.forEach(el=>{
-
-        const windowHeight = window.innerHeight;
-        const top = el.getBoundingClientRect().top;
-
-        if(top < windowHeight - 120){
+        if(el.getBoundingClientRect().top < window.innerHeight - 120){
             el.classList.add('active');
         }
 
@@ -515,6 +485,68 @@ function reveal(){
 
 window.addEventListener('scroll', reveal);
 reveal();
+
+/* 3D BACKGROUND */
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth/window.innerHeight,
+    0.1,
+    1000
+);
+
+const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('bg3d'),
+    alpha:true,
+    antialias:true
+});
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
+
+const geometry = new THREE.IcosahedronGeometry(3,1);
+
+const material = new THREE.MeshStandardMaterial({
+    color:0x38bdf8,
+    wireframe:true
+});
+
+const sphere = new THREE.Mesh(geometry,material);
+
+scene.add(sphere);
+
+const light1 = new THREE.PointLight(0x38bdf8,1);
+light1.position.set(5,5,5);
+
+const light2 = new THREE.AmbientLight(0xffffff,.4);
+
+scene.add(light1,light2);
+
+camera.position.z = 8;
+
+function animate(){
+
+    requestAnimationFrame(animate);
+
+    sphere.rotation.x += 0.002;
+    sphere.rotation.y += 0.003;
+
+    renderer.render(scene,camera);
+
+}
+
+animate();
+
+window.addEventListener('resize',()=>{
+
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth,window.innerHeight);
+
+});
 
 </script>
 
