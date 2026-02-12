@@ -4,33 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rafael Neri | Portfólio Profissional</title>
+<title>Rafael Neri | Portfólio 3D</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+
 <style>
 
-/* ================= VARIÁVEIS ================= */
+/* ================= GLOBAL ================= */
 
 :root{
---bg:#0d1117;
---card:#161b22;
---text:#e6edf3;
---muted:#8b949e;
---primary:#3178c6;
---border:#30363d;
+--bg:#050b17;
+--glass:rgba(255,255,255,0.08);
+--border:rgba(255,255,255,0.15);
+--text:#e5e7eb;
+--primary:#38bdf8;
 }
-
-.light{
---bg:#ffffff;
---card:#f6f8fa;
---text:#24292f;
---muted:#57606a;
---primary:#2563eb;
---border:#d0d7de;
-}
-
-/* ================= RESET ================= */
 
 *{
 margin:0;
@@ -40,10 +30,17 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-background:var(--bg);
+background:radial-gradient(circle at top,#08142c,#020617);
 color:var(--text);
-line-height:1.6;
-transition:.3s;
+overflow-x:hidden;
+}
+
+/* ================= 3D ================= */
+
+#scene3d{
+position:fixed;
+inset:0;
+z-index:-2;
 }
 
 /* ================= NAV ================= */
@@ -52,7 +49,8 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-background:var(--card);
+backdrop-filter:blur(15px);
+background:rgba(0,0,0,0.4);
 border-bottom:1px solid var(--border);
 z-index:1000;
 }
@@ -60,7 +58,7 @@ z-index:1000;
 .nav-inner{
 max-width:1200px;
 margin:auto;
-padding:15px 20px;
+padding:15px 25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -69,26 +67,24 @@ align-items:center;
 .logo{
 font-weight:700;
 color:var(--primary);
-font-size:18px;
+font-size:20px;
 }
 
 .nav-links{
 display:flex;
-gap:18px;
+gap:20px;
 }
 
-.nav-links a,
-.nav-links button{
-background:none;
-border:none;
-color:var(--muted);
-cursor:pointer;
-font-size:14px;
+.nav-links a{
+color:var(--text);
 text-decoration:none;
+font-size:14px;
+opacity:.8;
+transition:.3s;
 }
 
-.nav-links a:hover,
-.nav-links button:hover{
+.nav-links a:hover{
+opacity:1;
 color:var(--primary);
 }
 
@@ -99,20 +95,20 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
-padding-top:90px;
+padding-top:100px;
 }
 
 .hero{
 max-width:1100px;
-width:100%;
 display:grid;
-grid-template-columns:1.3fr .7fr;
-gap:40px;
+grid-template-columns:1.2fr .8fr;
+gap:50px;
 padding:20px;
 }
 
 .hero h1{
-font-size:44px;
+font-size:50px;
+line-height:1.1;
 }
 
 .hero span{
@@ -120,30 +116,28 @@ color:var(--primary);
 }
 
 .hero p{
-margin:20px 0;
-color:var(--muted);
-max-width:500px;
+margin:25px 0;
+opacity:.85;
+font-size:17px;
 }
 
-/* ================= BOTÃO ================= */
-
 .btn{
-background:var(--primary);
-color:white;
-padding:8px 18px;
-border-radius:6px;
-border:none;
-font-size:13px;
+display:inline-block;
+padding:12px 26px;
+background:linear-gradient(135deg,#38bdf8,#2563eb);
+border-radius:30px;
+color:#020617;
 font-weight:600;
-cursor:pointer;
 text-decoration:none;
+transition:.3s;
 }
 
 .btn:hover{
-opacity:.9;
+transform:translateY(-2px);
+box-shadow:0 10px 30px #38bdf866;
 }
 
-/* ================= PERFIL ================= */
+/* ================= PROFILE ================= */
 
 .profile{
 display:flex;
@@ -153,24 +147,26 @@ gap:12px;
 }
 
 .profile img{
-width:220px;
-height:220px;
-border-radius:12px;
+width:240px;
+height:240px;
+border-radius:50%;
 object-fit:cover;
-border:2px solid var(--border);
+border:3px solid var(--primary);
+box-shadow:0 0 40px #38bdf8aa;
 }
 
 .upload{
-font-size:12px;
-color:var(--muted);
+font-size:13px;
 cursor:pointer;
+opacity:.7;
 }
 
 .upload:hover{
+opacity:1;
 color:var(--primary);
 }
 
-input[type=file]{
+input{
 display:none;
 }
 
@@ -178,50 +174,50 @@ display:none;
 
 section{
 max-width:1100px;
-margin:80px auto;
+margin:90px auto;
 padding:0 20px;
 }
 
-.section-title{
-font-size:26px;
-margin-bottom:25px;
-border-left:4px solid var(--primary);
-padding-left:12px;
+.title{
+font-size:34px;
+margin-bottom:35px;
+border-left:5px solid var(--primary);
+padding-left:15px;
 }
 
-/* ================= GRID ================= */
+/* ================= CARDS ================= */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
 
-/* ================= CARD ================= */
-
 .card{
-background:var(--card);
+background:var(--glass);
+backdrop-filter:blur(15px);
 border:1px solid var(--border);
-border-radius:8px;
-padding:22px;
-transition:.2s;
+border-radius:18px;
+padding:28px;
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+transition:.4s;
+transform-style:preserve-3d;
 }
 
 .card:hover{
+transform:rotateX(6deg) rotateY(-6deg) translateY(-8px);
 border-color:var(--primary);
-transform:translateY(-4px);
 }
 
 /* ================= FOOTER ================= */
 
 footer{
-border-top:1px solid var(--border);
 text-align:center;
-padding:30px;
-color:var(--muted);
+padding:40px;
+opacity:.6;
 }
 
-/* ================= RESPONSIVO ================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:900px){
 
@@ -230,9 +226,13 @@ grid-template-columns:1fr;
 text-align:center;
 }
 
+.hero h1{
+font-size:38px;
+}
+
 .profile img{
-width:180px;
-height:180px;
+width:190px;
+height:190px;
 }
 
 }
@@ -242,21 +242,20 @@ height:180px;
 
 <body>
 
+<canvas id="scene3d"></canvas>
+
 <!-- NAV -->
 
 <nav>
 <div class="nav-inner">
 
-<div class="logo">Rafael Neri</div>
+<div class="logo">Rafael.dev</div>
 
 <div class="nav-links">
 <a href="#sobre">Sobre</a>
-<a href="#skills">Competências</a>
-<a href="#experiencia">Experiência</a>
-<a href="#formacao">Formação</a>
+<a href="#skills">Stack</a>
+<a href="#exp">Experiência</a>
 <a href="#contato">Contato</a>
-
-<button onclick="toggleTheme()">🌙</button>
 </div>
 
 </div>
@@ -270,20 +269,20 @@ height:180px;
 
 <div>
 
-<h1>Olá, eu sou <span>Rafael Neri</span></h1>
+<h1>Rafael <span>Neri</span></h1>
 
 <p>
-Profissional das áreas Administrativa, RH e Tecnologia,
-com foco em dados, automação e melhoria de processos.
+Full Stack | Dados | Automação<br>
+Criando soluções digitais inteligentes.
 </p>
 
-<button class="btn" onclick="downloadCV()">Baixar Currículo</button>
+<a href="#contato" class="btn">Fale Comigo</a>
 
 </div>
 
 <div class="profile">
 
-<img id="photo" src="https://via.placeholder.com/220">
+<img id="photo" src="https://via.placeholder.com/240">
 
 <label class="upload">
 <input type="file" id="uploadPhoto" accept="image/*">
@@ -292,7 +291,7 @@ Alterar Foto
 
 <label class="upload">
 <input type="file" id="uploadCV" accept="application/pdf">
-Anexar Currículo (PDF)
+Anexar Currículo
 </label>
 
 </div>
@@ -305,40 +304,35 @@ Anexar Currículo (PDF)
 
 <section id="sobre">
 
-<h2 class="section-title">Sobre Mim</h2>
+<h2 class="title">Sobre</h2>
 
 <div class="card">
 
 <p>
-Profissional com sólida experiência em Recrutamento,
-Departamento Pessoal, rotinas administrativas e tecnologia.
-Atuação orientada a dados, compliance e automação.
+Profissional com sólida experiência em RH, Administração,
+Tecnologia e Dados. Especialista em otimização de processos.
 </p>
 
 </div>
 
 </section>
 
-<!-- COMPETÊNCIAS -->
+<!-- SKILLS -->
 
 <section id="skills">
 
-<h2 class="section-title">Competências</h2>
+<h2 class="title">Stack</h2>
 
 <div class="grid">
 
-<div class="card">Recrutamento & Seleção</div>
-<div class="card">Departamento Pessoal</div>
-<div class="card">Excel Avançado</div>
-<div class="card">Power BI</div>
-<div class="card">Análise de Dados</div>
-<div class="card">Automação</div>
-<div class="card">ATS (Catho / Pandapé)</div>
-<div class="card">LGPD</div>
+<div class="card">TypeScript</div>
 <div class="card">Python</div>
-<div class="card">JavaScript</div>
-<div class="card">HTML / CSS</div>
-<div class="card">DevOps Básico</div>
+<div class="card">Power BI</div>
+<div class="card">SQL</div>
+<div class="card">Node.js</div>
+<div class="card">Docker</div>
+<div class="card">Flask</div>
+<div class="card">Cloud</div>
 
 </div>
 
@@ -346,62 +340,25 @@ Atuação orientada a dados, compliance e automação.
 
 <!-- EXPERIÊNCIA -->
 
-<section id="experiencia">
+<section id="exp">
 
-<h2 class="section-title">Experiência Profissional</h2>
+<h2 class="title">Experiência</h2>
 
 <div class="grid">
 
 <div class="card">
 <h3>Grupo Mazzini</h3>
-<p><strong>Assistente Administrativo / R&S</strong></p>
-<p>Dez/2024 – Atual</p>
-<p>
-Recrutamento em alto volume, processos admissionais,
-relatórios, benefícios e automação.
-</p>
+<p>R&S / Administrativo</p>
 </div>
 
 <div class="card">
-<h3>Trend Brasil Transportes</h3>
-<p><strong>Assistente Administrativo</strong></p>
-<p>Set/2024 – Nov/2024</p>
-<p>
-Controle de ponto, benefícios, folha e sistemas corporativos.
-</p>
+<h3>Trend Brasil</h3>
+<p>Administrativo</p>
 </div>
 
 <div class="card">
 <h3>INEMA</h3>
-<p><strong>Assistente Administrativo</strong></p>
-<p>2012 – 2022</p>
-<p>
-Gestão de dados, folha, relatórios, SEI e LGPD.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- FORMAÇÃO -->
-
-<section id="formacao">
-
-<h2 class="section-title">Formação</h2>
-
-<div class="grid">
-
-<div class="card">
-Pós-graduação em BI, Big Data e IA (Em andamento)
-</div>
-
-<div class="card">
-Tecnólogo em Inteligência Artificial (Em andamento)
-</div>
-
-<div class="card">
-Bacharelado em Administração
+<p>Gestão de Dados</p>
 </div>
 
 </div>
@@ -412,14 +369,13 @@ Bacharelado em Administração
 
 <section id="contato">
 
-<h2 class="section-title">Contato</h2>
+<h2 class="title">Contato</h2>
 
 <div class="card">
 
-<p>📍 Salvador - BA</p>
 <p>📧 nerirafa@gmail.com</p>
 <p>📱 (71) 98627-5154</p>
-<p>💻 GitHub: github.com/krejos</p>
+<p>💻 github.com/krejos</p>
 
 </div>
 
@@ -427,30 +383,22 @@ Bacharelado em Administração
 
 <footer>
 
-© 2026 • Rafael Neri • Portfólio Profissional
+© 2026 • Rafael Neri • Portfólio 3D
 
 </footer>
 
 <script>
 
-/* ============ DARK MODE ============ */
+/* ================= FOTO ================= */
 
-function toggleTheme(){
-document.body.classList.toggle("light");
-}
-
-/* ============ FOTO ============ */
-
-const photoInput = document.getElementById("uploadPhoto");
 const photo = document.getElementById("photo");
+const upload = document.getElementById("uploadPhoto");
 
-const savedPhoto = localStorage.getItem("photo");
+const saved = localStorage.getItem("photo");
 
-if(savedPhoto){
-photo.src = savedPhoto;
-}
+if(saved) photo.src = saved;
 
-photoInput.addEventListener("change", e=>{
+upload.addEventListener("change", e=>{
 
 const file = e.target.files[0];
 
@@ -469,47 +417,107 @@ reader.readAsDataURL(file);
 
 });
 
-/* ============ CURRÍCULO ============ */
+/* ================= CURRÍCULO ================= */
 
-const cvInput = document.getElementById("uploadCV");
+const cvUpload = document.getElementById("uploadCV");
 
-cvInput.addEventListener("change", e=>{
+cvUpload.addEventListener("change", e=>{
 
 const file = e.target.files[0];
 
-if(!file || file.type !== "application/pdf"){
-alert("Envie apenas PDF.");
+if(!file || file.type!=="application/pdf"){
+alert("Envie PDF");
 return;
 }
 
 const reader = new FileReader();
 
 reader.onload = ()=>{
-
-localStorage.setItem("cv", reader.result);
+localStorage.setItem("cv",reader.result);
 alert("Currículo salvo!");
-
 };
 
 reader.readAsDataURL(file);
 
 });
 
-function downloadCV(){
+/* ================= THREE JS ================= */
 
-const cv = localStorage.getItem("cv");
+const canvas = document.getElementById("scene3d");
 
-if(!cv){
-alert("Nenhum currículo anexado.");
-return;
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
+
+const renderer = new THREE.WebGLRenderer({
+canvas,
+alpha:true,
+antialias:true
+});
+
+renderer.setSize(window.innerWidth,window.innerHeight);
+
+/* Geometry */
+
+const geo = new THREE.IcosahedronGeometry(3,1);
+
+const mat = new THREE.MeshStandardMaterial({
+color:0x38bdf8,
+wireframe:true
+});
+
+const mesh = new THREE.Mesh(geo,mat);
+
+scene.add(mesh);
+
+/* Lights */
+
+scene.add(new THREE.PointLight(0x38bdf8,1,50));
+scene.add(new THREE.AmbientLight(0xffffff,.3));
+
+camera.position.z = 8;
+
+/* Animation */
+
+function animate(){
+
+requestAnimationFrame(animate);
+
+mesh.rotation.x += 0.0015;
+mesh.rotation.y += 0.002;
+
+renderer.render(scene,camera);
+
 }
 
-const a = document.createElement("a");
-a.href = cv;
-a.download = "Rafael_Neri_Curriculo.pdf";
-a.click();
+animate();
 
-}
+/* Resize */
+
+window.addEventListener("resize",()=>{
+
+camera.aspect = window.innerWidth/window.innerHeight;
+camera.updateProjectionMatrix();
+renderer.setSize(window.innerWidth,window.innerHeight);
+
+});
+
+/* ================= PARALLAX ================= */
+
+document.addEventListener("mousemove",e=>{
+
+const x = (e.clientX/window.innerWidth - .5)*0.3;
+const y = (e.clientY/window.innerHeight - .5)*0.3;
+
+mesh.rotation.y += x*0.01;
+mesh.rotation.x += y*0.01;
+
+});
 
 </script>
 
